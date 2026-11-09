@@ -186,7 +186,7 @@ function chart(){const ps=sel==='all'?S.props:S.props.filter(p=>p.id===sel),ms=[
  <div class="panel"><table><tr><th>เดือน</th><th>ค่าน้ำ</th><th>เปลี่ยนแปลง</th><th>ค่าไฟ</th><th>เปลี่ยนแปลง</th></tr>${ms.map((m,i)=>`<tr><td>${ml(m)}</td><td>${f(W[i])}</td><td>${i?pc(W[i],W[i-1])||'–':'–'}</td><td>${f(E[i])}</td><td>${i?pc(E[i],E[i-1])||'–':'–'}</td></tr>`).join('')}</table></div>`}
 function draw(){nav();const mom=S.mom||role!=='editor';$('#m').innerHTML=mom||view==='home'?home():view==='chart'?chart():group(view)}
 function showLogin(msg){role=null;$('#hd').hidden=true;$('#m').innerHTML='';const L=$('#login');L.hidden=false;
- L.innerHTML=`<div class="lg"><img class="cv" src="${COVER}" alt="ห้องเช่า ค่าห้อง 1,500 บาทต่อเดือน"><h1>บริหารบิลบ้านและห้องเช่า</h1><p>ใส่รหัสเพื่อเข้าใช้งาน</p>
+ L.innerHTML=`<div class="lg"><img class="cv" src="${COVER}" alt="ห้องเช่า ค่าห้อง 1,500 บาทต่อเดือน"><h1>การจัดการค่าน้ำค่าไฟ ค่าห้องสำหรับ ห้องเช่า-ส่วนตัว</h1><p>ใส่รหัสเพื่อเข้าใช้งาน</p>
  <input id="pin" type="password" inputmode="numeric" autocomplete="current-password" aria-label="รหัส PIN" onkeydown="if(event.key==='Enter')login()">
  <button class="btn fill" onclick="login()">เข้าสู่ระบบ</button><div id="lerr">${msg||''}</div></div>`;$('#pin').focus()}
 async function login(){const pin=$('#pin').value.trim();if(!pin)return;$('#lerr').textContent='กำลังตรวจสอบ...';
